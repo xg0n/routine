@@ -63,7 +63,7 @@ func getg() g {
 	}
 	return g{
 		goid:         *(*int64)(add(gp, offsetGoid)),
-		parentGoid:   *(*uint64)(add(gp, offsetGoid)),
+		parentGoid:   *(*uint64)(add(gp, offsetParentGoid)),
 		paniconfault: (*bool)(add(gp, offsetPaniconfault)),
 		gopc:         (*uintptr)(add(gp, offsetGopc)),
 		labels:       (*unsafe.Pointer)(add(gp, offsetLabels)),
