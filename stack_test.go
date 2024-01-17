@@ -11,13 +11,13 @@ func TestCaptureStackTrace(t *testing.T) {
 	stackTrace := captureStackTrace(0, 10)
 	assert.Greater(t, len(stackTrace), 2)
 	frame, _ := runtime.CallersFrames(stackTrace).Next()
-	assert.Equal(t, "github.com/timandy/routine.TestCaptureStackTrace", frame.Function)
+	assert.Equal(t, "github.com/xg0n/routine.TestCaptureStackTrace", frame.Function)
 	assert.Equal(t, 11, frame.Line)
 	//
 	stackTrace2 := captureStackSkip(1)
 	assert.Greater(t, len(stackTrace2), 2)
 	frame2, _ := runtime.CallersFrames(stackTrace2).Next()
-	assert.Equal(t, "github.com/timandy/routine.TestCaptureStackTrace", frame2.Function)
+	assert.Equal(t, "github.com/xg0n/routine.TestCaptureStackTrace", frame2.Function)
 	assert.Equal(t, 17, frame2.Line)
 }
 
@@ -28,12 +28,12 @@ func TestCaptureStackTrace_Deep(t *testing.T) {
 	//
 	frame, more := frames.Next()
 	assert.True(t, more)
-	assert.Equal(t, "github.com/timandy/routine.captureStackDeepRecursive", frame.Function)
+	assert.Equal(t, "github.com/xg0n/routine.captureStackDeepRecursive", frame.Function)
 	assert.Equal(t, 93, frame.Line)
 	//
 	frame2, more2 := frames.Next()
 	assert.True(t, more2)
-	assert.Equal(t, "github.com/timandy/routine.captureStackDeepRecursive", frame2.Function)
+	assert.Equal(t, "github.com/xg0n/routine.captureStackDeepRecursive", frame2.Function)
 	assert.Equal(t, 91, frame2.Line)
 }
 
