@@ -8,14 +8,18 @@ import (
 
 var (
 	offsetGoid         uintptr
+	offsetParentGoid   uintptr
 	offsetPaniconfault uintptr
 	offsetGopc         uintptr
 	offsetLabels       uintptr
 )
 
+// Field names of g struct can be found at
+// https://github.com/golang/go/blob/go1.21.6/src/runtime/runtime2.go#L414
 func init() {
 	gt := getgt()
 	offsetGoid = offset(gt, "goid")
+	offsetParentGoid = offset(gt, "parentGoid")
 	offsetPaniconfault = offset(gt, "paniconfault")
 	offsetGopc = offset(gt, "gopc")
 	offsetLabels = offset(gt, "labels")
@@ -23,6 +27,7 @@ func init() {
 
 type g struct {
 	goid         int64
+	parentGoid   uint64
 	paniconfault *bool
 	gopc         *uintptr
 	labels       *unsafe.Pointer
@@ -58,6 +63,7 @@ func getg() g {
 	}
 	return g{
 		goid:         *(*int64)(add(gp, offsetGoid)),
+		parentGoid:   *(*uint64)(add(gp, offsetParentGoid)),
 		paniconfault: (*bool)(add(gp, offsetPaniconfault)),
 		gopc:         (*uintptr)(add(gp, offsetGopc)),
 		labels:       (*unsafe.Pointer)(add(gp, offsetLabels)),
