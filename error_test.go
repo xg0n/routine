@@ -62,11 +62,11 @@ func TestRuntimeError_Panic_Panic(t *testing.T) {
 		assert.Equal(t, "RuntimeError: 1", line)
 		//
 		line = lines[1]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Panic_Panic."))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Panic_Panic."))
 		assert.True(t, strings.HasSuffix(line, "error_test.go:74"))
 		//
 		line = lines[2]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Panic_Panic()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Panic_Panic()"))
 		assert.True(t, strings.HasSuffix(line, "error_test.go:77"))
 	}()
 	defer func() {
@@ -100,7 +100,7 @@ func TestRuntimeError_Error_EmptyMessage_NilError(t *testing.T) {
 	assert.Equal(t, "RuntimeError", line)
 	//
 	line = lines[1]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_EmptyMessage_NilError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_EmptyMessage_NilError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:95"))
 	//
 	line = lines[2]
@@ -126,7 +126,7 @@ func TestRuntimeError_Error_EmptyMessage_NormalError(t *testing.T) {
 	assert.Equal(t, " ---> RuntimeError: this is inner error", line)
 	//
 	line = lines[2]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_EmptyMessage_NormalError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_EmptyMessage_NormalError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:117"))
 	//
 	line = lines[3]
@@ -136,7 +136,7 @@ func TestRuntimeError_Error_EmptyMessage_NormalError(t *testing.T) {
 	assert.Equal(t, "   --- End of inner error stack trace ---", line)
 	//
 	line = lines[5]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_EmptyMessage_NormalError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_EmptyMessage_NormalError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:118"))
 	//
 	line = lines[6]
@@ -158,7 +158,7 @@ func TestRuntimeError_Error_NormalMessage_NilError(t *testing.T) {
 	assert.Equal(t, "RuntimeError: this is error message", line)
 	//
 	line = lines[1]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_NormalMessage_NilError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_NormalMessage_NilError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:153"))
 	//
 	line = lines[2]
@@ -184,7 +184,7 @@ func TestRuntimeError_Error_NormalMessage_NormalError(t *testing.T) {
 	assert.Equal(t, " ---> RuntimeError: this is inner error", line)
 	//
 	line = lines[2]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_NormalMessage_NormalError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_NormalMessage_NormalError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:175"))
 	//
 	line = lines[3]
@@ -194,7 +194,7 @@ func TestRuntimeError_Error_NormalMessage_NormalError(t *testing.T) {
 	assert.Equal(t, "   --- End of inner error stack trace ---", line)
 	//
 	line = lines[5]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_NormalMessage_NormalError() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_NormalMessage_NormalError() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:176"))
 	//
 	line = lines[6]
@@ -241,7 +241,7 @@ func TestRuntimeError_Error_MainGoid(t *testing.T) {
 	assert.Equal(t, "RuntimeError: this is error message", line)
 	//
 	line = lines[1]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_MainGoid() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_MainGoid() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:235"))
 	//
 	line = lines[2]
@@ -258,7 +258,7 @@ func TestRuntimeError_Error_ZeroGopc(t *testing.T) {
 	assert.Equal(t, "RuntimeError: this is error message", line)
 	//
 	line = lines[1]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestRuntimeError_Error_ZeroGopc() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestRuntimeError_Error_ZeroGopc() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:252"))
 	//
 	line = lines[2]
@@ -325,11 +325,11 @@ func TestArgumentNilError_Panic_Panic(t *testing.T) {
 		assert.Equal(t, "Parameter name: a.", line)
 		//
 		line = lines[2]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestArgumentNilError_Panic_Panic."))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestArgumentNilError_Panic_Panic."))
 		assert.True(t, strings.HasSuffix(line, "error_test.go:337"))
 		//
 		line = lines[3]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestArgumentNilError_Panic_Panic()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestArgumentNilError_Panic_Panic()"))
 		assert.True(t, strings.HasSuffix(line, "error_test.go:341"))
 	}()
 	defer func() {
@@ -371,7 +371,7 @@ func TestArgumentNilError_Error(t *testing.T) {
 	assert.Equal(t, " ---> RuntimeError: this is inner error", line)
 	//
 	line = lines[3]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestArgumentNilError_Error() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestArgumentNilError_Error() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:359"))
 	//
 	line = lines[4]
@@ -381,7 +381,7 @@ func TestArgumentNilError_Error(t *testing.T) {
 	assert.Equal(t, "   --- End of inner error stack trace ---", line)
 	//
 	line = lines[6]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/timandy/routine.TestArgumentNilError_Error() in "))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestArgumentNilError_Error() in "))
 	assert.True(t, strings.HasSuffix(line, "error_test.go:360"))
 	//
 	line = lines[7]
