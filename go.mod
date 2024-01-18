@@ -1,4 +1,4 @@
-module github.com/xg0n/routineid
+module github.com/xg0n/routine
 
 go 1.21
 

@@ -613,22 +613,22 @@ func TestGo_Error(t *testing.T) {
 	assert.Equal(t, "RuntimeError: error", line)
 	//
 	line = lines[1]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestGo_Error."))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.TestGo_Error."))
 	assert.True(t, strings.HasSuffix(line, "api_routine_test.go:601"))
 	//
 	line = lines[2]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.inheritedTask.run()"))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.inheritedTask.run()"))
 	assert.True(t, strings.HasSuffix(line, "routine.go:31"))
 	//
 	line = lines[3]
-	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.(*futureTask[...]).Run()"))
+	assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.(*futureTask[...]).Run()"))
 	assert.True(t, strings.HasSuffix(line, "future_task.go:108"))
 	//
 	line = lines[4]
 	assert.Equal(t, "   --- End of error stack trace ---", line)
 	//
 	line = lines[5]
-	assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routineid.Go()"))
+	assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routine.Go()"))
 	assert.True(t, strings.HasSuffix(line, "api_routine.go:49"))
 	//
 	line = lines[6]
@@ -723,22 +723,22 @@ func TestGoWait_Error(t *testing.T) {
 		assert.Equal(t, "RuntimeError: error", line)
 		//
 		line = lines[1]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestGoWait_Error."))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.TestGoWait_Error."))
 		assert.True(t, strings.HasSuffix(line, "api_routine_test.go:707"))
 		//
 		line = lines[2]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.inheritedWaitTask.run()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.inheritedWaitTask.run()"))
 		assert.True(t, strings.HasSuffix(line, "routine.go:70"))
 		//
 		line = lines[3]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.(*futureTask[...]).Run()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.(*futureTask[...]).Run()"))
 		assert.True(t, strings.HasSuffix(line, "future_task.go:108"))
 		//
 		line = lines[4]
 		assert.Equal(t, "   --- End of error stack trace ---", line)
 		//
 		line = lines[5]
-		assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routineid.GoWait()"))
+		assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routine.GoWait()"))
 		assert.True(t, strings.HasSuffix(line, "api_routine.go:57"))
 	}()
 	task.Get()
@@ -825,30 +825,30 @@ func TestGoWaitResult_Error(t *testing.T) {
 		assert.Equal(t, "RuntimeError: error", line)
 		//
 		line = lines[1]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.TestGoWaitResult_Error."))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.TestGoWaitResult_Error."))
 		assert.True(t, strings.HasSuffix(line, "api_routine_test.go:807"))
 		//
 		line = lines[2]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.inheritedWaitResultTask[...].run()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.inheritedWaitResultTask[...].run()"))
 		assert.True(t, strings.HasSuffix(line, "routine.go:109"))
 		//
 		lineOffset := 0
 		if len(lines) == 7 {
 			line = lines[3+lineOffset]
 			lineOffset = 1
-			assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.WrapWaitResultTask[...].func1()"))
+			assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.WrapWaitResultTask[...].func1()"))
 			assert.True(t, strings.HasSuffix(line, "api_routine.go:41"))
 		}
 		//
 		line = lines[3+lineOffset]
-		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routineid.(*futureTask[...]).Run()"))
+		assert.True(t, strings.HasPrefix(line, "   at github.com/xg0n/routine.(*futureTask[...]).Run()"))
 		assert.True(t, strings.HasSuffix(line, "future_task.go:108"))
 		//
 		line = lines[4+lineOffset]
 		assert.Equal(t, "   --- End of error stack trace ---", line)
 		//
 		line = lines[5+lineOffset]
-		assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routineid.GoWaitResult[...]()"))
+		assert.True(t, strings.HasPrefix(line, "   created by github.com/xg0n/routine.GoWaitResult[...]()"))
 		assert.True(t, strings.HasSuffix(line, "api_routine.go:66"))
 	}()
 	task.Get()
